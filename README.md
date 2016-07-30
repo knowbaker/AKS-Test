@@ -1,2 +1,2 @@
 # AKS
-AKS Primality Test
+AKS Primality Test implementation using Java
