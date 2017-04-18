@@ -25,6 +25,9 @@ public class TestBigIntegerAKS {
 		
 		BigIntegerAKS b3 = new BigIntegerAKS("16633604317637114693");
 		assertTrue((double)557 == b3.bthRoot(7));
+		
+		BigIntegerAKS b4 = new BigIntegerAKS("166336043176371146932");
+		assertTrue((double)557 != b4.bthRoot(7));
 	}
 	
 	@Test
