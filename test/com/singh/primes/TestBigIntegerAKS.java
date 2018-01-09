@@ -1,14 +1,10 @@
-package com.singh.primes.test;
+package com.singh.primes;
 
 import static org.junit.Assert.assertTrue;
 
 import java.math.BigInteger;
 
-import org.junit.Ignore;
 import org.junit.Test;
-
-import com.singh.primes.AKS;
-import com.singh.primes.BigIntegerAKS;
 
 public class TestBigIntegerAKS {
 
