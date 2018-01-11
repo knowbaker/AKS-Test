@@ -1,6 +1,7 @@
 package com.singh.primes;
 
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 
 import java.math.BigInteger;
 
@@ -56,5 +57,14 @@ public class TestBigIntegerAKS {
 //		assertTrue(new BigInteger("247817285970").equals(aks.orderOfNModR(new BigInteger("5"), new BigInteger("7434543523443"))));
 		assertTrue(new BigInteger("2550").equals(new BigIntegerAKS("5").orderOfNModR(new BigInteger("743454"))));
 	}
+	
+	@Test
+	public void testR() {
+		assertEquals(new BigInteger("29"), new BigIntegerAKS("31").calculateR());
+	}
 
+	@Test
+	public void testLog2() {
+		assertEquals(new Double(1), Double.valueOf(new BigIntegerAKS("2").log()/Math.log(2)));
+	}
 }

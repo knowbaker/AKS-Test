@@ -8,12 +8,12 @@ public class BigIntegerAKS extends BigInteger {
 
 	public BigIntegerAKS(String val) {
 		super(val);
-		this.log2n = log();
+		this.log2n = log()/Math.log(2);
 	}
 	
 	public BigInteger logSquared() {
-		BigInteger log = get(log2n);
-		return log.multiply(log);
+		double logSq = log2n * log2n;
+		return get(logSq);//equivalent of taking floor of the bigdecimal or floor( (log2(n))^2 )
 	}
 	
 	/*
@@ -66,20 +66,37 @@ public class BigIntegerAKS extends BigInteger {
 		return new BigDecimal(d).toBigInteger();
 	}
 	
+	/*
+	 * Find the smallest r such that order of n (mod r) > log^2(n).
+	 */
+	public BigInteger calculateR() {
+		BigInteger k = logSquared();
+		BigInteger q = k.add(BigInteger.ONE);
+		BigInteger i = BigInteger.ONE;
+		for(; ; q = q.add(BigInteger.ONE)) {
+			for(; i.compareTo(k) <= 0; i = i.add(BigInteger.ONE))
+				if(modPow(i, q).equals(BigInteger.ONE)) //since 1 (mod q) = 1
+					break;
+				
+			if(i.compareTo(k) > 0)//found it
+				return q;
+		}
+	}
+	
 	private double calculateY(double x, int b, BigInteger p, BigInteger xBig) {
 		return (b-1)*x + Math.floor(p.divide(xBig.pow(b - 1)).doubleValue()); 
 	}
 
-	private double log() {
+	public double log() {
 		// from http://world.std.com/~reinhold/BigNumCalcSource/BigNumCalc.java
 		BigInteger b;
 
 		int temp = bitLength() - 1000;
 		if (temp > 0) {
 			b = shiftRight(temp);
-			return (Math.log(b.doubleValue()) + temp) * Math.log(2);
+			return Math.log(b.doubleValue()) + temp * Math.log(2);
 		} else
-			return (Math.log(doubleValue()) * Math.log(2));
+			return Math.log(doubleValue());// * Math.log(2));
 	}
 	
 }
