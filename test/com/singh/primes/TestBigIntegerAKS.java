@@ -1,6 +1,7 @@
 package com.singh.primes;
 
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertEquals;
 
 import java.math.BigInteger;
@@ -66,5 +67,10 @@ public class TestBigIntegerAKS {
 	@Test
 	public void testLog2() {
 		assertEquals(new Double(1), Double.valueOf(new BigIntegerAKS("2").log()/Math.log(2)));
+	}
+	
+	@Test
+	public void testGcdExists() {
+		assertFalse(new BigIntegerAKS("31").gcdExists());
 	}
 }
