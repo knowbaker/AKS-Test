@@ -82,7 +82,7 @@ public class BigIntegerAKS extends BigInteger {
 		} else
 			return Math.log(doubleValue());// * Math.log(2));
 	}
-	
+		
 	public BigInteger fromDouble(double d) {
 		return new BigDecimal(d).toBigInteger();
 	}
@@ -110,6 +110,24 @@ public class BigIntegerAKS extends BigInteger {
 		return x;
 	}
 	
+	/**
+	 * Basic implementation of totient function
+	 * TODO: Improve time complexity
+	 * @param r
+	 * @return φ(n)
+	 */
+	protected BigInteger totient(BigInteger r) {
+		if(r.equals(BigInteger.ONE))
+			return BigInteger.ONE;
+		
+		BigInteger phi = BigInteger.ZERO;		
+		for(BigInteger i = BigInteger.ONE; i.compareTo(r) < 0; i = i.add(BigInteger.ONE))
+			if(r.gcd(i).equals(BigInteger.ONE))
+				phi = phi.add(BigInteger.ONE);
+		
+		return phi;
+	}
+
 	private double calculateY(double x, int b, BigInteger p, BigInteger xBig) {
 		return (b-1)*x + Math.floor(p.divide(xBig.pow(b - 1)).doubleValue()); 
 	}
