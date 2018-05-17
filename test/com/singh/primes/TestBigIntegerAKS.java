@@ -55,8 +55,9 @@ public class TestBigIntegerAKS {
 	public void testOrderNModR() {
 		assertTrue(new BigInteger("3").equals(new BigIntegerAKS("4").orderOfNModR(new BigInteger("7"))));
 		assertTrue(new BigInteger("6").equals(new BigIntegerAKS("5").orderOfNModR(new BigInteger("7"))));
-		assertTrue(new BigInteger("247817285970").equals(new BigIntegerAKS("5").orderOfNModR(new BigInteger("7434543523443"))));
 		assertTrue(new BigInteger("2550").equals(new BigIntegerAKS("5").orderOfNModR(new BigInteger("743454"))));
+		//The following takes a very long time
+//		assertTrue(new BigInteger("247817285970").equals(new BigIntegerAKS("5").orderOfNModR(new BigInteger("7434543523443"))));
 	}
 	
 	@Test
