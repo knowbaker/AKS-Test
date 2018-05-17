@@ -10,7 +10,7 @@ import org.junit.Test;
 
 public class TestBigIntegerAKS {
 
-//	@Test
+	@Test
 	public void testNthRoot() {
 		BigIntegerAKS b0 = new BigIntegerAKS("2515456");
 		assertTrue((double)136 == b0.bthRoot(3));
@@ -28,7 +28,7 @@ public class TestBigIntegerAKS {
 		assertTrue((double)557 != b4.bthRoot(7));
 	}
 	
-//	@Test
+	@Test
 	public void testPerfectPower() {
 		assertTrue(new BigIntegerAKS("283593393").isPerfectPower());
 		assertTrue(new BigIntegerAKS("22808058910723055197469457").isPerfectPower());
@@ -53,23 +53,23 @@ public class TestBigIntegerAKS {
 	
 	@Test
 	public void testOrderNModR() {
-//		assertTrue(new BigInteger("3").equals(aks.orderOfNModR(new BigInteger("4"), new BigInteger("7"))));
-//		assertTrue(new BigInteger("6").equals(aks.orderOfNModR(new BigInteger("5"), new BigInteger("7"))));
-//		assertTrue(new BigInteger("247817285970").equals(aks.orderOfNModR(new BigInteger("5"), new BigInteger("7434543523443"))));
+		assertTrue(new BigInteger("3").equals(new BigIntegerAKS("4").orderOfNModR(new BigInteger("7"))));
+		assertTrue(new BigInteger("6").equals(new BigIntegerAKS("5").orderOfNModR(new BigInteger("7"))));
+		assertTrue(new BigInteger("247817285970").equals(new BigIntegerAKS("5").orderOfNModR(new BigInteger("7434543523443"))));
 		assertTrue(new BigInteger("2550").equals(new BigIntegerAKS("5").orderOfNModR(new BigInteger("743454"))));
 	}
 	
-//	@Test
+	@Test
 	public void testR() {
 		assertEquals(new BigInteger("29"), new BigIntegerAKS("31").calculateR());
 	}
 
-//	@Test
+	@Test
 	public void testLog2() {
 		assertEquals(new Double(1), Double.valueOf(new BigIntegerAKS("2").log()/Math.log(2)));
 	}
 	
-//	@Test
+	@Test
 	public void testGcdExists() {
 		assertFalse(new BigIntegerAKS("31").gcdExists());
 	}

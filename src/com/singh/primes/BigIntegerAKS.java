@@ -4,6 +4,8 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 
 public class BigIntegerAKS extends BigInteger {
+	private static final long serialVersionUID = 216477414286346026L;
+
 	private double log2n;
 
 	public BigIntegerAKS(String val) {
